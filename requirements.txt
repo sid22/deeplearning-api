@@ -1,0 +1,12 @@
+click==6.7
+Flask==1.0.2
+gunicorn==19.9.0
+h5py==2.8.0
+itsdangerous==0.24
+Jinja2==2.10
+MarkupSafe==1.0
+numpy==1.15.1
+Pillow==5.2.0
+scipy==1.1.0
+six==1.11.0
+Werkzeug==0.14.1
