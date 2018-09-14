@@ -1,11 +1,9 @@
-from flask import Flask
-from flask import Response
-from flask import request
-from flask import render_template
-
-from models.model1 import model1_predictor
 import json
 import pickle
+
+from flask import Flask, Response, render_template, request, url_for
+
+from models.model1 import model1_predictor
 
 app = Flask(__name__)
 
@@ -36,6 +34,12 @@ def api1():
             js = json.dumps(data)
             resp = Response(js, status=400, mimetype='application/json')
             return resp
+    elif request.method == 'GET':
+        return render_template('cat.html')
+
+# with app.test_request_context():
+#     print(url_for('hello_world'))
+#     print(url_for('api1'))
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)

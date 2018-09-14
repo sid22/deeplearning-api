@@ -1,0 +1,26 @@
+<html>
+<head>
+    <title>Deep Learning API - 1</title>
+</head>
+<body style="margin:10%;">
+
+        <br>
+        <h3>This is Model 1 trained at last of course 1 of Deep Learning</h3>
+        <br><h4>The model is of a trained neural network to recognize whether image is of a cat or not</h4>
+        <br><H4>The pickled model is available <a href="https://www.dropbox.com/sh/gsa00gsk15orxyk/AABwqiRKTleQnrdEbbyQZiKza?dl=0">here</a></H4>
+        <br><h4>To get prediction make a POST request to this URL with key as 'image' and the image in jpg format</h4>
+        <br>Sample cURL request as:
+        <br><br>
+        <code>
+                curl -X POST \
+            https://dlapi-216320.appspot.com/catnoncat \
+            <br>-H 'content-type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW' \
+            <br>-F image=@/Users/siddharth/Desktop/code/deeplearning/course1/images/cat1.jpg
+        </code>
+        <br>
+        <hr>
+        <br>
+        If the model runs successfully, json response with predition as 1 if cat and 0 if not and code 200.
+        <br>Errors are returned with code 400
+</body>
+</html>
