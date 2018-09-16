@@ -1,33 +1,34 @@
 <html>
 <head>
-    <title>Deep Learning API - 1</title>
+    <title>Deep Learning API - 2</title>
 </head>
 <body style="margin:10%;">
 
         <br>
-        <h3>This is Model 1 trained at last of course 1 of Deep Learning</h3>
-        <br><h4>The model is of a trained neural network to recognize whether image is of a cat or not</h4>
+        <h3>This is Model 2 trained at last of course 2 of Deep Learning</h3>
+        <br><h4>The model is of a trained neural network to recognize digits from a hand, the dataset was a subset of SIGNIT dataset and only recognizes hand patterns for 0,1,2,3,4 and 5.
+            The NN is relatively primitive and hence as such works only with images without complex backgrounds. 
+        </h4>
         <br><H4>The pickled model is available <a href="https://www.dropbox.com/sh/gsa00gsk15orxyk/AABwqiRKTleQnrdEbbyQZiKza?dl=0">here</a></H4>
         <br><h4>To get prediction make a POST request to this URL with key as 'image' and the image in jpg format</h4>
         <br>Sample cURL request as:
         <br><br>
         <code>
                 curl -X POST \
-            https://dlapi-216320.appspot.com/catnoncat \
+            https://dlapi-216320.appspot.com/handdigit \
             <br>-H 'content-type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW' \
             <br>-F image=@/Users/siddharth/Desktop/code/deeplearning/course1/images/cat1.jpg
         </code>
         <br>
         <hr>
         <br>
-        <br>
         <h4>You also use the webform below.</h4>
-        <form action="{{ url_for('api1') }}" method="post" enctype="multipart/form-data">
+        <form action="{{ url_for('api2') }}" method="post" enctype="multipart/form-data">
             <input type='file' name='image'>
             <input type='submit'>
         </form>
-        <br>>
-        If the model runs successfully, json response with predition as 1 if cat and 0 if not and code 200.
+        <br>
+        If the model runs successfully, json response with predition digit value and code 200.
         <br>Errors are returned with code 400
 </body>
 </html>

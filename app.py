@@ -4,6 +4,7 @@ import pickle
 from flask import Flask, Response, render_template, request, url_for
 
 from models.model1 import model1_predictor
+from models.model2 import model2_predictor
 
 app = Flask(__name__)
 
@@ -36,6 +37,30 @@ def api1():
             return resp
     elif request.method == 'GET':
         return render_template('cat.html')
+
+@app.route('/handdigit', methods=['GET', 'POST'])
+def api2():
+    if request.method == 'POST':
+        email = request.form.get('email','')
+        fname = request.files['image']
+        res = Response()
+        try:
+            p = model2_predictor(fname)
+            data = {
+                'prediction': p
+            }
+            js = json.dumps(data)
+            resp = Response(js, status=200, mimetype='application/json')
+            return resp
+        except Exception as e:
+            data = {
+                'error_message': "some error occured, ensure your image is small and jpg"
+            }
+            js = json.dumps(data)
+            resp = Response(js, status=400, mimetype='application/json')
+            return resp
+    elif request.method == 'GET':
+        return render_template('hand.html')
 
 # with app.test_request_context():
 #     print(url_for('hello_world'))
