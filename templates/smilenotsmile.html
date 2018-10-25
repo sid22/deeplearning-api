@@ -8,17 +8,22 @@
         <h3>This is Model 1 trained at last of course 4 of Deep Learning</h3>
         <br><h4>The model is of a trained neural network to recognize whether the person in the input picture is smiling or not. ( happy/not happy)
         </h4>
+        <img src="{{ url_for('static', filename='smile.png') }}">
         <!-- <br><H4>The pickled model is available <a href="https://www.dropbox.com/sh/gsa00gsk15orxyk/AABwqiRKTleQnrdEbbyQZiKza?dl=0">here</a></H4> -->
+        <br><H4>The .h5 model is available <a href="{{ url_for('static', filename='happy.h5') }}">here</a></H4>
         <br><h4>To get prediction make a POST request to this URL with key as 'image' and the image in jpg format</h4>
         <br>Sample cURL request as:
         <br><br>
         <code>
                 curl -X POST \
-            https://dlapi-216320.appspot.com/handdigit \
+                https://dlapis.herokuapp.com/smilenotsmile \
             <br>-H 'content-type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW' \
             <br>-F image=@/Users/siddharth/Desktop/code/deeplearning/course1/images/cat1.jpg
         </code>
         <br>
+        <br>
+        <br>
+        
         <hr>
         <br>
         <h4>You also use the webform below.</h4>

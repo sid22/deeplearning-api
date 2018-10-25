@@ -9,7 +9,7 @@ from io import StringIO
 import keras.backend as K
 
 def model3_predictor(iimage):
-    model = load_model('happy.h5')
+    model = load_model('static/happy.h5')
     try:
         img = kimg.load_img(iimage, target_size=(64, 64))
     except Exception as e:

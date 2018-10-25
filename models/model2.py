@@ -9,7 +9,7 @@ from .tf_utils import predict
 
 
 def model2_predictor(fname):
-    parameters = pickle.load(open("model2.pkl", "rb"))
+    parameters = pickle.load(open("static/model2.pkl", "rb"))
     image = np.array(ndimage.imread(fname, flatten=False))
     my_image = scipy.misc.imresize(image, size=(64,64)).reshape((1, 64*64*3)).T
     my_image_prediction = predict(my_image, parameters)
